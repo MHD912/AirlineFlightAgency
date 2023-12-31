@@ -12,6 +12,20 @@ import java.util.Date;
  */
 public class Flight {
     private String departurePlace;
+    private String arrivalPlace;
+    private short type;
+    private String requiredDocuments;
+    private short classType;
+    private Date dateTime;
+    private float cost;
+    private Date approximateTime;
+
+    public static final short ONE_WAY = 0;
+    public static final short ROUND_TRIP = 1;
+
+    public static final short ECONOMICAL = 0;
+    public static final short FIRST_CLASS = 1;
+    public static final short VIP = 2;
 
     public String getDeparturePlace() {
         return departurePlace;
@@ -21,8 +35,6 @@ public class Flight {
         this.departurePlace = departurePlace;
     }
 
-    private String arrivalPlace;
-
     public String getArrivalPlace() {
         return arrivalPlace;
     }
@@ -30,8 +42,6 @@ public class Flight {
     public void setArrivalPlace(String arrivalPlace) {
         this.arrivalPlace = arrivalPlace;
     }
-
-    private short type;
 
     /**
      * @return
@@ -47,8 +57,6 @@ public class Flight {
         this.type = type;
     }
 
-    private String requiredDocuments;
-
     public String getRequiredDocuments() {
         return requiredDocuments;
     }
@@ -56,8 +64,6 @@ public class Flight {
     public void setRequiredDocuments(String requiredDocuments) {
         this.requiredDocuments = requiredDocuments;
     }
-
-    private short classType;
 
     /**
      * @return - Possible values are: (ECONOMICAL = 0, FIRST_CLASS = 1, VIP = 2)
@@ -73,8 +79,6 @@ public class Flight {
         this.classType = classType;
     }
 
-    private Date dateTime;
-
     public Date getDateTime() {
         return dateTime;
     }
@@ -82,8 +86,6 @@ public class Flight {
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
-
-    private float cost;
 
     public float getCost() {
         return cost;
@@ -93,8 +95,6 @@ public class Flight {
         this.cost = cost;
     }
 
-    private Date approximateTime;
-
     public Date getApproximateTime() {
         return approximateTime;
     }
@@ -102,13 +102,6 @@ public class Flight {
     public void setApproximateTime(Date approximateTime) {
         this.approximateTime = approximateTime;
     }
-
-    public static final short ONE_WAY = 0;
-    public static final short ROUND_TRIP = 1;
-
-    public static final short ECONOMICAL = 0;
-    public static final short FIRST_CLASS = 1;
-    public static final short VIP = 2;
 
     public Flight() {
         this.departurePlace = "";
@@ -133,14 +126,14 @@ public class Flight {
     }
 
     /**
-     * @param departurePlace - String representing departure airport
-     * @param arrivalPlace - String representing arrival airport
-     * @param type - Possible values are (ONE_WAY, ROUND_TRIP)
+     * @param departurePlace    - String representing departure airport
+     * @param arrivalPlace      - String representing arrival airport
+     * @param type              - Possible values are (ONE_WAY, ROUND_TRIP)
      * @param requiredDocuments - String describing flight required documents
-     * @param classType - Possible values are (ECONOMICAL, FIRST_CLASS, VIP)
-     * @param dateTime - Date object for flight date & time
-     * @param cost - Float value for flight ticket cost  
-     * @param approximateTime - Date object for flight approximate time length
+     * @param classType         - Possible values are (ECONOMICAL, FIRST_CLASS, VIP)
+     * @param dateTime          - Date object for flight date & time
+     * @param cost              - Float value for flight ticket cost
+     * @param approximateTime   - Date object for flight approximate time length
      */
     public Flight(String departurePlace, String arrivalPlace, short type, String requiredDocuments, short classType,
             Date dateTime, float cost, Date approximateTime) {

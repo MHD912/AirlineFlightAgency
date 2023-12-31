@@ -12,6 +12,19 @@ import java.util.Date;
  */
 public class PreviousFlight {
     private String departurePlace;
+    private String arrivalPlace;
+    private short type;
+    private short classType;
+    private Date dateTime;
+    private float cost;
+    private Date approximateTime;
+
+    public static final short ONE_WAY = 0;
+    public static final short ROUND_TRIP = 1;
+
+    public static final short ECONOMICAL = 0;
+    public static final short FIRST_CLASS = 1;
+    public static final short VIP = 2;
 
     public String getDeparturePlace() {
         return departurePlace;
@@ -21,8 +34,6 @@ public class PreviousFlight {
         this.departurePlace = departurePlace;
     }
 
-    private String arrivalPlace;
-
     public String getArrivalPlace() {
         return arrivalPlace;
     }
@@ -30,8 +41,6 @@ public class PreviousFlight {
     public void setArrivalPlace(String arrivalPlace) {
         this.arrivalPlace = arrivalPlace;
     }
-
-    private short type;
 
     /**
      * @return
@@ -47,8 +56,6 @@ public class PreviousFlight {
         this.type = type;
     }
 
-    private short classType;
-
     /**
      * @return - Possible values are: (ECONOMICAL = 0, FIRST_CLASS = 1, VIP = 2)
      */
@@ -63,8 +70,6 @@ public class PreviousFlight {
         this.classType = classType;
     }
 
-    private Date dateTime;
-
     public Date getDateTime() {
         return dateTime;
     }
@@ -72,8 +77,6 @@ public class PreviousFlight {
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
-
-    private float cost;
 
     public float getCost() {
         return cost;
@@ -83,8 +86,6 @@ public class PreviousFlight {
         this.cost = cost;
     }
 
-    private Date approximateTime;
-
     public Date getApproximateTime() {
         return approximateTime;
     }
@@ -92,13 +93,6 @@ public class PreviousFlight {
     public void setApproximateTime(Date approximateTime) {
         this.approximateTime = approximateTime;
     }
-
-    public static final short ONE_WAY = 0;
-    public static final short ROUND_TRIP = 1;
-
-    public static final short ECONOMICAL = 0;
-    public static final short FIRST_CLASS = 1;
-    public static final short VIP = 2;
 
     public PreviousFlight() {
         this.departurePlace = "";
