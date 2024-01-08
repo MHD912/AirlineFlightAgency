@@ -4,12 +4,15 @@
  */
 package main;
 
+import jFrame.MainJFrame;
+
 /**
  *
  * @author husse
  */
 public class Main {
     public static void main(String[] args) {
-        
+        MainJFrame jFrame = new MainJFrame();
+        jFrame.setVisible(true);
     }
 }
