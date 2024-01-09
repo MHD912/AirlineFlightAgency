@@ -1,1 +1,1 @@
-
+full_name;password;balance;passport_id

@@ -4,17 +4,36 @@
  */
 package jFrame;
 
+import main.Main;
+
 /**
  *
  * @author husse
  */
 public class MainJFrame extends javax.swing.JFrame {
 
+    static protected String session = "";
+
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
+        refresh();
+    }
+    
+    public final void refresh() {
+        if (session.isEmpty()) {
+            jMenuItemLogin.setVisible(true);
+            jMenuItemRegister.setVisible(true);
+            jMenuItemLogout.setVisible(false);
+            jMenuBook.setVisible(false);
+        } else {
+            jMenuItemLogin.setVisible(false);
+            jMenuItemRegister.setVisible(false);
+            jMenuItemLogout.setVisible(true);
+            jMenuBook.setVisible(true);
+        }
     }
 
     /**
@@ -28,31 +47,51 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuUser = new javax.swing.JMenu();
         jMenuItemLogin = new javax.swing.JMenuItem();
         jMenuItemRegister = new javax.swing.JMenuItem();
         jMenuItemLogout = new javax.swing.JMenuItem();
         jMenuItemQuit = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuBook = new javax.swing.JMenu();
+        jMenuItemUsingPassport = new javax.swing.JMenuItem();
+        jMenuItemUsingVisa = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel1.setText("Welcome to AIU Air-Lines");
 
-        jMenu1.setText("User");
+        jMenuUser.setText("User");
 
         jMenuItemLogin.setText("Login");
-        jMenu1.add(jMenuItemLogin);
+        jMenuItemLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLoginActionPerformed(evt);
+            }
+        });
+        jMenuUser.add(jMenuItemLogin);
 
         jMenuItemRegister.setText("Register");
-        jMenu1.add(jMenuItemRegister);
+        jMenuItemRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRegisterActionPerformed(evt);
+            }
+        });
+        jMenuUser.add(jMenuItemRegister);
 
         jMenuItemLogout.setText("Logout");
-        jMenu1.add(jMenuItemLogout);
+        jMenuItemLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLogoutActionPerformed(evt);
+            }
+        });
+        jMenuUser.add(jMenuItemLogout);
 
         jMenuItemQuit.setText("Quit");
         jMenuItemQuit.addActionListener(new java.awt.event.ActionListener() {
@@ -60,19 +99,29 @@ public class MainJFrame extends javax.swing.JFrame {
                 jMenuItemQuitActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItemQuit);
+        jMenuUser.add(jMenuItemQuit);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuUser);
 
-        jMenu2.setText("Book");
+        jMenuBook.setText("Book");
 
-        jMenuItem3.setText("Using passport");
-        jMenu2.add(jMenuItem3);
+        jMenuItemUsingPassport.setText("Using passport");
+        jMenuItemUsingPassport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemUsingPassportActionPerformed(evt);
+            }
+        });
+        jMenuBook.add(jMenuItemUsingPassport);
 
-        jMenuItem4.setText("Using visa");
-        jMenu2.add(jMenuItem4);
+        jMenuItemUsingVisa.setText("Using visa");
+        jMenuItemUsingVisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemUsingVisaActionPerformed(evt);
+            }
+        });
+        jMenuBook.add(jMenuItemUsingVisa);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuBook);
 
         setJMenuBar(jMenuBar1);
 
@@ -98,8 +147,47 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jMenuItemQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemQuitActionPerformed
         // TODO add your handling code here:
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_jMenuItemQuitActionPerformed
+
+    private void jMenuItemLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLoginActionPerformed
+        // TODO add your handling code here:
+        LoginJFrame jFrame = new LoginJFrame();
+        this.setVisible(false);
+        jFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItemLoginActionPerformed
+
+    private void jMenuItemRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegisterActionPerformed
+        // TODO add your handling code here:
+        RegisterJFrame jFrame = new RegisterJFrame();
+        this.setVisible(false);
+        jFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRegisterActionPerformed
+
+    private void jMenuItemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogoutActionPerformed
+        // TODO add your handling code here:
+        this.session = "";
+        this.refresh();
+    }//GEN-LAST:event_jMenuItemLogoutActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void jMenuItemUsingPassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsingPassportActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        BookingJFrame jFrame = new BookingJFrame(BookingJFrame.USING_PASSPORT);
+        jFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItemUsingPassportActionPerformed
+
+    private void jMenuItemUsingVisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsingVisaActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        BookingJFrame jFrame = new BookingJFrame(BookingJFrame.USING_VISA);
+        jFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItemUsingVisaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,14 +226,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenu jMenuBook;
     private javax.swing.JMenuItem jMenuItemLogin;
     private javax.swing.JMenuItem jMenuItemLogout;
     private javax.swing.JMenuItem jMenuItemQuit;
     private javax.swing.JMenuItem jMenuItemRegister;
+    private javax.swing.JMenuItem jMenuItemUsingPassport;
+    private javax.swing.JMenuItem jMenuItemUsingVisa;
+    private javax.swing.JMenu jMenuUser;
     // End of variables declaration//GEN-END:variables
 }

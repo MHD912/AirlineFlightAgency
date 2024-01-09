@@ -1,1 +1,1 @@
-
+departure_place;arrival_place;type;required_documents;class_type;date_time;cost;approximate_time

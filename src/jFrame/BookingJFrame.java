@@ -9,11 +9,15 @@ package jFrame;
  * @author husse
  */
 public class BookingJFrame extends javax.swing.JFrame {
-
+    public static final short USING_PASSPORT = 0;
+    public static final short USING_VISA = 1;
+    
+    private short type;
     /**
      * Creates new form BookingJFrame
      */
-    public BookingJFrame() {
+    public BookingJFrame(short bookingType) {
+        this.type = bookingType;
         initComponents();
     }
 
@@ -29,6 +33,8 @@ public class BookingJFrame extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButtonHome = new javax.swing.JButton();
+        jButtonDone = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -42,6 +48,11 @@ public class BookingJFrame extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,6 +68,20 @@ public class BookingJFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jButtonHome.setText("Home");
+        jButtonHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeActionPerformed(evt);
+            }
+        });
+
+        jButtonDone.setText("Done");
+        jButtonDone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDoneActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,17 +90,43 @@ public class BookingJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(366, 366, 366)
+                .addComponent(jButtonHome)
+                .addGap(56, 56, 56)
+                .addComponent(jButtonDone)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonHome)
+                    .addComponent(jButtonDone))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
+        // TODO add your handling code here:
+        MainJFrame jFrame = new MainJFrame();
+        this.dispose();
+        jFrame.setVisible(true);
+    }//GEN-LAST:event_jButtonHomeActionPerformed
+
+    private void jButtonDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,12 +158,14 @@ public class BookingJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BookingJFrame().setVisible(true);
+                new BookingJFrame(USING_PASSPORT).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonDone;
+    private javax.swing.JButton jButtonHome;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

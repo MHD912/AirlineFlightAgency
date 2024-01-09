@@ -4,6 +4,8 @@
  */
 package jFrame;
 
+import java.util.Arrays;
+
 /**
  *
  * @author husse
@@ -15,6 +17,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
      */
     public RegisterJFrame() {
         initComponents();
+        jLabelError.setVisible(false);
     }
 
     /**
@@ -26,43 +29,48 @@ public class RegisterJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        FullNameJTextField = new javax.swing.JTextField();
-        BallanceJTextField = new javax.swing.JTextField();
-        PassportIDJTextField = new javax.swing.JTextField();
-        PasswordJPasswordField = new javax.swing.JPasswordField();
+        jTextFieldFullname = new javax.swing.JTextField();
+        jTextFieldBalance = new javax.swing.JTextField();
+        jTextFieldPassportID = new javax.swing.JTextField();
+        jPasswordField = new javax.swing.JPasswordField();
         RegisterJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        ErrorJLabel = new javax.swing.JLabel();
+        jLabelFullname = new javax.swing.JLabel();
+        jLabelPassword = new javax.swing.JLabel();
+        jLabelBalance = new javax.swing.JLabel();
+        jLabelPassportID = new javax.swing.JLabel();
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
-        FullNameJTextField.setToolTipText("");
+        jTextFieldFullname.setToolTipText("");
 
         RegisterJButton.setText("SUBMIT");
-        RegisterJButton.setActionCommand("SUBMIT");
         RegisterJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterJButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Full Name");
+        jLabelFullname.setText("Full Name");
 
-        jLabel2.setText("Password");
+        jLabelPassword.setText("Password");
 
-        jLabel3.setText("Ballance");
+        jLabelBalance.setText("Balance");
 
-        jLabel4.setText("Passport ID");
+        jLabelPassportID.setText("Passport ID");
 
-        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel5.setText("Register Form");
+        jLabelTitle.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabelTitle.setText("Register Form");
 
-        ErrorJLabel.setForeground(new java.awt.Color(255, 0, 0));
-        ErrorJLabel.setText("Error Label");
+        jLabelError.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelError.setText("Error Label");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +78,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(137, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(jLabelTitle)
                 .addGap(137, 137, 137))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,43 +88,43 @@ public class RegisterJFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabelFullname)
+                            .addComponent(jLabelPassword)
+                            .addComponent(jLabelBalance)
+                            .addComponent(jLabelPassportID))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PassportIDJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPassportID, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(BallanceJTextField)
-                                .addComponent(FullNameJTextField)
-                                .addComponent(PasswordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ErrorJLabel))))
+                                .addComponent(jTextFieldBalance)
+                                .addComponent(jTextFieldFullname)
+                                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelError))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
+                .addComponent(jLabelTitle)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FullNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jTextFieldFullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelFullname))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PasswordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPassword))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BallanceJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jTextFieldBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelBalance))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PassportIDJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jTextFieldPassportID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPassportID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ErrorJLabel)
+                .addComponent(jLabelError)
                 .addGap(18, 18, 18)
                 .addComponent(RegisterJButton)
                 .addContainerGap(60, Short.MAX_VALUE))
@@ -127,7 +135,21 @@ public class RegisterJFrame extends javax.swing.JFrame {
 
     private void RegisterJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterJButtonActionPerformed
         // TODO add your handling code here:
+        String fullname = jTextFieldFullname.getText().strip();
+        String password = Arrays.toString(jPasswordField.getPassword()).strip();
+        double balance = Double.parseDouble(jTextFieldBalance.getText().strip());
+        String passportID = jTextFieldPassportID.getText().strip();
+
+        MainJFrame.session = fullname;
+        this.dispose();
+        MainJFrame jFrame = new MainJFrame();
+        jFrame.setVisible(true);
     }//GEN-LAST:event_RegisterJButtonActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -165,16 +187,16 @@ public class RegisterJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BallanceJTextField;
-    private javax.swing.JLabel ErrorJLabel;
-    private javax.swing.JTextField FullNameJTextField;
-    private javax.swing.JTextField PassportIDJTextField;
-    private javax.swing.JPasswordField PasswordJPasswordField;
     private javax.swing.JButton RegisterJButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelBalance;
+    private javax.swing.JLabel jLabelError;
+    private javax.swing.JLabel jLabelFullname;
+    private javax.swing.JLabel jLabelPassportID;
+    private javax.swing.JLabel jLabelPassword;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPasswordField jPasswordField;
+    private javax.swing.JTextField jTextFieldBalance;
+    private javax.swing.JTextField jTextFieldFullname;
+    private javax.swing.JTextField jTextFieldPassportID;
     // End of variables declaration//GEN-END:variables
 }
